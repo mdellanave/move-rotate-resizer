@@ -1,4 +1,4 @@
-import resizer from './resizer.min.js';
+import resizer from './resizer.js';
 
 let options = {
 	onDragStart: function (e) {
@@ -59,9 +59,9 @@ resizer.add(div1, { ...options, ...{ resizeFromCenter: true } });
 let div2 = document.querySelector('#corner-resize');
 resizer.add(div2, { ...options, ...{} });
 let div3 = document.querySelector('#free-resize');
-resizer.add(div3, { ...options, ...{ aspectRatio: false } });
+resizer.add(div3, { ...options, ...{ aspectRatio: false, container: document.querySelector('.container')  } });
 let div4 = document.querySelector('#bound-resize');
-resizer.add(div4, { ...options, ...{ boundWithContainer: true } });
+resizer.add(div4, { ...options, ...{ boundWithContainer: document.querySelector('.print-area') } });
 
 document.body.addEventListener('click', function (e) {
 	console.log('document.body.click', e);
